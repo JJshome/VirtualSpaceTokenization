@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Space Tokenization Simulation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .header {
+            background: linear-gradient(135deg, #4a148c, #7b1fa2);
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+        }
+        .card-header {
+            font-weight: bold;
+            background-color: #f1f3f5;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 15px;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #4a148c;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .trend-up {
+            color: #4caf50;
+        }
+        .trend-down {
+            color: #f44336;
+        }
+        #spacesList, #transactionsList {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        #simulationControls {
+            margin: 20px 0;
+        }
+        .space-item, .transaction-item {
+            padding: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .space-item:hover, .transaction-item:hover {
+            background-color: #f8f9fa;
+        }
+        .marketplace-listing {
+            padding: 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        #networkVisualization {
+            width: 100%;
+            height: 300px;
+            background-color: #f1f3f5;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>AI-based Virtual Space Tokenization</h1>
+            <p>Simulation Dashboard</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="simulationControls" class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <h5>Simulation Controls</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="simulationSwitch" checked>
+                            <label class="form-check-label" for="simulationSwitch">Running</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <span id="simulationTime" class="badge bg-secondary">Time: 0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card stat-card">
+                    <div class="stat-value" id="spaceCount">0</div>
+                    <div class="stat-label">Virtual Spaces</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card">
+                    <div class="stat-value" id="tokenizedCount">0</div>
+                    <div class="stat-label">Tokenized Spaces</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card">
+                    <div class="stat-value" id="userCount">0</div>
+                    <div class="stat-label">Users</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card">
+                    <div class="stat-value" id="transactionCount">0</div>
+                    <div class="stat-label">Transactions</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Market Overview
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card stat-card">
+                                    <div class="stat-value" id="listingCount">0</div>
+                                    <div class="stat-label">Active Listings</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card stat-card">
+                                    <div class="stat-value" id="averagePrice">0</div>
+                                    <div class="stat-label">Avg. Price</div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h6>Market Trend</h6>
+                        <div id="marketTrend">
+                            <span class="badge bg-secondary">No data</span>
+                        </div>
+                        <hr>
+                        <h6>Recent Sales</h6>
+                        <div id="recentSales">
+                            <p>No recent sales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Network Visualization
+                    </div>
+                    <div class="card-body">
+                        <canvas id="networkVisualization"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Virtual Spaces
+                    </div>
+                    <div class="card-body">
+                        <div id="spacesList">
+                            <p>Loading spaces...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Recent Transactions
+                    </div>
+                    <div class="card-body">
+                        <div id="transactionsList">
+                            <p>No transactions yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        Simulation Log
+                    </div>
+                    <div class="card-body">
+                        <pre id="simulationLog" style="height: 200px; overflow-y: auto; background-color: #f8f9fa; padding: 10px; border-radius: 5px;"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="mt-5 mb-3 text-center text-muted">
+            <p>AI-based Virtual Space Tokenization and Trading System Simulation</p>
+            <p><small>Patent Pending</small></p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        // Connect to the server
+        const socket = io();
+        
+        // Elements
+        const simulationSwitch = document.getElementById('simulationSwitch');
+        const simulationTime = document.getElementById('simulationTime');
+        const spaceCount = document.getElementById('spaceCount');
+        const tokenizedCount = document.getElementById('tokenizedCount');
+        const userCount = document.getElementById('userCount');
+        const transactionCount = document.getElementById('transactionCount');
+        const listingCount = document.getElementById('listingCount');
+        const averagePrice = document.getElementById('averagePrice');
+        const marketTrend = document.getElementById('marketTrend');
+        const recentSales = document.getElementById('recentSales');
+        const spacesList = document.getElementById('spacesList');
+        const transactionsList = document.getElementById('transactionsList');
+        const simulationLog = document.getElementById('simulationLog');
+        
+        // Network visualization
+        const networkCanvas = document.getElementById('networkVisualization');
+        const ctx = networkCanvas.getContext('2d');
+        
+        let spaces = [];
+        let transactions = [];
+        
+        // Initialize network visualization
+        const networkChart = new Chart(ctx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Tokenized Spaces',
+                    data: [],
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Value'
+                        },
+                        min: 0,
+                        max: 20000
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Traffic'
+                        },
+                        min: 0,
+                        max: 100
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `Space #${context.raw.id} (Value: ${context.raw.x}, Traffic: ${context.raw.y})`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Handle simulation switch
+        simulationSwitch.addEventListener('change', function() {
+            if (this.checked) {
+                socket.emit('simulation:start');
+                logEvent('Simulation started');
+            } else {
+                socket.emit('simulation:stop');
+                logEvent('Simulation stopped');
+            }
+        });
+        
+        // Socket events
+        socket.on('connect', () => {
+            logEvent('Connected to simulation server');
+            
+            // Request initial data
+            fetch('/api/spaces')
+                .then(response => response.json())
+                .then(data => {
+                    spaces = data;
+                    updateSpacesList();
+                    updateNetworkVisualization();
+                });
+                
+            fetch('/api/marketplace')
+                .then(response => response.json())
+                .then(data => {
+                    updateMarketplace(data);
+                });
+        });
+        
+        socket.on('simulation:state', (state) => {
+            updateSimulationState(state);
+        });
+        
+        socket.on('simulation:update', (state) => {
+            updateSimulationState(state);
+        });
+        
+        // Update functions
+        function updateSimulationState(state) {
+            simulationTime.textContent = `Time: ${state.currentTime}`;
+            spaceCount.textContent = state.spaces;
+            tokenizedCount.textContent = state.tokenizedSpaces;
+            userCount.textContent = state.users;
+            transactionCount.textContent = state.transactions;
+            listingCount.textContent = state.activeListings;
+            
+            if (state.recentSales && state.recentSales.length > 0) {
+                updateRecentSales(state.recentSales);
+            }
+            
+            if (state.trends) {
+                updateMarketTrend(state.trends);
+            }
+            
+            // Refresh data every 10 ticks
+            if (state.currentTime % 10 === 0) {
+                refreshData();
+            }
+        }
+        
+        function updateMarketTrend(trends) {
+            if (trends.direction && trends.percentage) {
+                const direction = trends.direction === 'up' ? 'trend-up' : 'trend-down';
+                const icon = trends.direction === 'up' ? '↑' : '↓';
+                
+                marketTrend.innerHTML = `
+                    <span class="${direction}">
+                        ${icon} ${trends.percentage}%
+                    </span>
+                    <span class="ms-2">Avg: ${formatCurrency(trends.averagePrice)}</span>
+                `;
+                
+                averagePrice.textContent = formatCurrency(trends.averagePrice);
+            }
+        }
+        
+        function updateRecentSales(sales) {
+            if (sales.length === 0) {
+                recentSales.innerHTML = '<p>No recent sales</p>';
+                return;
+            }
+            
+            let html = '<div class="list-group">';
+            
+            sales.forEach(sale => {
+                html += `
+                    <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="fw-bold">Token ${sale.tokenId.substring(0, 8)}...</span>
+                            <br>
+                            <small class="text-muted">${new Date(sale.timestamp).toLocaleTimeString()}</small>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">${formatCurrency(sale.price)}</span>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            recentSales.innerHTML = html;
+        }
+        
+        function updateSpacesList() {
+            if (spaces.length === 0) {
+                spacesList.innerHTML = '<p>No spaces available</p>';
+                return;
+            }
+            
+            let html = '';
+            
+            spaces.slice(0, 10).forEach(space => {
+                html += `
+                    <div class="space-item">
+                        <h6>Space #${space.id.replace('space-', '')}</h6>
+                        <div class="d-flex justify-content-between">
+                            <span class="badge bg-secondary">${space.theme}</span>
+                            <span>${space.tokenized ? `<span class="badge bg-success">Tokenized</span>` : '<span class="badge bg-warning">Not Tokenized</span>'}</span>
+                        </div>
+                        <div class="mt-2">
+                            <small>Size: ${space.size.width}x${space.size.height}x${space.size.depth}</small>
+                            <br>
+                            <small>Features: ${space.features.join(', ')}</small>
+                        </div>
+                        ${space.value ? `<div class="mt-1 text-end"><small>Value: ${formatCurrency(space.value)}</small></div>` : ''}
+                    </div>
+                `;
+            });
+            
+            html += `<div class="text-center mt-3"><small>Showing 10 of ${spaces.length} spaces</small></div>`;
+            
+            spacesList.innerHTML = html;
+        }
+        
+        function updateNetworkVisualization() {
+            // Generate random data for visualization
+            const data = spaces
+                .filter(space => space.tokenized)
+                .slice(0, 20)
+                .map(space => {
+                    return {
+                        id: space.id.replace('space-', ''),
+                        x: space.value || Math.random() * 20000,
+                        y: Math.random() * 100, // Traffic
+                        r: 10 + Math.random() * 20 // Size represents rooms
+                    };
+                });
+            
+            networkChart.data.datasets[0].data = data;
+            networkChart.update();
+        }
+        
+        function updateMarketplace(data) {
+            if (data.recentSales && data.recentSales.length > 0) {
+                updateRecentSales(data.recentSales);
+            }
+            
+            if (data.trends) {
+                updateMarketTrend(data.trends);
+            }
+        }
+        
+        function refreshData() {
+            fetch('/api/spaces')
+                .then(response => response.json())
+                .then(data => {
+                    spaces = data;
+                    updateSpacesList();
+                    updateNetworkVisualization();
+                });
+                
+            fetch('/api/marketplace')
+                .then(response => response.json())
+                .then(data => {
+                    updateMarketplace(data);
+                });
+        }
+        
+        function logEvent(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            simulationLog.innerHTML += `[${timestamp}] ${message}\n`;
+            simulationLog.scrollTop = simulationLog.scrollHeight;
+        }
+        
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(value);
+        }
+        
+        // Initial refresh
+        refreshData();
+    </script>
+</body>
+</html>
