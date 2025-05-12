@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F8FF7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2A5DB0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E7D32;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9C27B0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6A1B9A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E91E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#880E4F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9800;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EF6C00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradBrown" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#795548;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4E342E;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="5" flood-color="#00000044"/>
+    </filter>
+    
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+      markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5D6B89"/>
+    </marker>
+    
+    <!-- Character -->
+    <g id="person">
+      <circle cx="0" cy="-15" r="10" fill="#FFD700" stroke="#000" stroke-width="1"/>
+      <path d="M -5,-15 A 5,5 0 0 1 5,-15" fill="none" stroke="#000" stroke-width="1"/>
+      <circle cx="-3" cy="-18" r="1" fill="#000"/>
+      <circle cx="3" cy="-18" r="1" fill="#000"/>
+      <line x1="0" y1="0" x2="0" y2="-5" stroke="#000" stroke-width="2"/>
+      <line x1="0" y1="-5" x2="-10" y2="5" stroke="#000" stroke-width="2"/>
+      <line x1="0" y1="-5" x2="10" y2="5" stroke="#000" stroke-width="2"/>
+      <line x1="0" y1="0" x2="-5" y2="15" stroke="#000" stroke-width="2"/>
+      <line x1="0" y1="0" x2="5" y2="15" stroke="#000" stroke-width="2"/>
+    </g>
+    
+    <!-- VR Headset -->
+    <g id="vr-headset">
+      <rect x="-12" y="-5" width="24" height="10" rx="2" fill="#34495E" stroke="#000" stroke-width="1"/>
+      <rect x="-10" y="-3" width="8" height="6" rx="1" fill="#3498DB" stroke="#000" stroke-width="0.5"/>
+      <rect x="2" y="-3" width="8" height="6" rx="1" fill="#3498DB" stroke="#000" stroke-width="0.5"/>
+      <path d="M -12,-1 H -15 C -16,2 -16,5 -12,5 Z" fill="#34495E" stroke="#000" stroke-width="0.5"/>
+      <path d="M 12,-1 H 15 C 16,2 16,5 12,5 Z" fill="#34495E" stroke="#000" stroke-width="0.5"/>
+    </g>
+    
+    <!-- Haptic Gloves -->
+    <g id="haptic-gloves">
+      <path d="M -15,0 C -12,-5 -8,-7 -5,-8 L -5,5 C -8,4 -12,3 -15,5 Z" fill="#7F8C8D" stroke="#000" stroke-width="1"/>
+      <path d="M 15,0 C 12,-5 8,-7 5,-8 L 5,5 C 8,4 12,3 15,5 Z" fill="#7F8C8D" stroke="#000" stroke-width="1"/>
+      <circle cx="-10" cy="-2" r="1.5" fill="#E74C3C"/>
+      <circle cx="10" cy="-2" r="1.5" fill="#E74C3C"/>
+    </g>
+    
+    <!-- 6G Tower -->
+    <g id="6g-tower">
+      <rect x="-5" y="-30" width="10" height="60" fill="#95A5A6" stroke="#7F8C8D" stroke-width="1"/>
+      <circle cx="0" cy="-25" r="8" fill="#ECF0F1" stroke="#BDC3C7" stroke-width="1"/>
+      <circle cx="0" cy="-10" r="8" fill="#ECF0F1" stroke="#BDC3C7" stroke-width="1"/>
+      <circle cx="0" cy="5" r="8" fill="#ECF0F1" stroke="#BDC3C7" stroke-width="1"/>
+      <path d="M -15,30 H 15" stroke="#7F8C8D" stroke-width="2"/>
+      <text x="0" y="-25" font-family="Arial" font-size="6" fill="#2C3E50" text-anchor="middle">6G</text>
+    </g>
+    
+    <!-- Signal Waves -->
+    <g id="signal-waves">
+      <path d="M 0,0 A 10,10 0 0 1 10,10" fill="none" stroke="#3498DB" stroke-width="1.5"/>
+      <path d="M 0,0 A 15,15 0 0 1 15,15" fill="none" stroke="#3498DB" stroke-width="1.5"/>
+      <path d="M 0,0 A 20,20 0 0 1 20,20" fill="none" stroke="#3498DB" stroke-width="1.5"/>
+    </g>
+    
+    <!-- Virtual Building -->
+    <g id="virtual-building">
+      <path d="M -25,-30 H 25 L 0,-50 Z" fill="#F1C40F" stroke="#F39C12" stroke-width="1.5"/>
+      <rect x="-25" y="-30" width="50" height="60" fill="#ECF0F1" stroke="#BDC3C7" stroke-width="1.5"/>
+      <rect x="-20" y="-25" width="10" height="15" fill="#3498DB" stroke="#2980B9" stroke-width="1"/>
+      <rect x="10" y="-25" width="10" height="15" fill="#3498DB" stroke="#2980B9" stroke-width="1"/>
+      <rect x="-15" y="5" width="30" height="25" fill="#3498DB" stroke="#2980B9" stroke-width="1"/>
+    </g>
+    
+    <!-- Virtual Avatar -->
+    <g id="virtual-avatar">
+      <circle cx="0" cy="-15" r="10" fill="#3498DB" stroke="#2980B9" stroke-width="1"/>
+      <path d="M -5,-15 A 5,5 0 0 1 5,-15" fill="none" stroke="#2980B9" stroke-width="1"/>
+      <circle cx="-3" cy="-18" r="1" fill="#2980B9"/>
+      <circle cx="3" cy="-18" r="1" fill="#2980B9"/>
+      <path d="M -8,-30 L 0,-25 L 8,-30" stroke="#2980B9" stroke-width="1" fill="none"/>
+      <line x1="0" y1="0" x2="0" y2="-5" stroke="#2980B9" stroke-width="2"/>
+      <line x1="0" y1="-5" x2="-10" y2="5" stroke="#2980B9" stroke-width="2"/>
+      <line x1="0" y1="-5" x2="10" y2="5" stroke="#2980B9" stroke-width="2"/>
+      <line x1="0" y1="0" x2="-7" y2="20" stroke="#2980B9" stroke-width="2"/>
+      <line x1="0" y1="0" x2="7" y2="20" stroke="#2980B9" stroke-width="2"/>
+    </g>
+    
+    <!-- Brain Wave -->
+    <g id="brain-wave">
+      <path d="M -20,0 C -15,-10 -10,10 -5,-5 C 0,5 5,-10 10,0 C 15,10 20,-5 25,0" fill="none" stroke="#E74C3C" stroke-width="1.5"/>
+    </g>
+    
+    <!-- Heart Rate -->
+    <g id="heart-rate">
+      <path d="M -20,0 L -15,0 L -10,-10 L -5,0 L 0,15 L 5,0 L 10,0 L 15,-5 L 20,0 L 25,0" fill="none" stroke="#E74C3C" stroke-width="1.5"/>
+    </g>
+    
+    <!-- NFT Token -->
+    <g id="nft-token">
+      <circle cx="0" cy="0" r="15" fill="#9B59B6" stroke="#6C3483" stroke-width="2"/>
+      <text x="0" y="5" font-family="Arial" font-size="10" fill="white" text-anchor="middle">NFT</text>
+    </g>
+    
+    <!-- Virtual Interface -->
+    <g id="interface">
+      <rect x="-25" y="-15" width="50" height="30" rx="3" fill="#34495E" stroke="#2C3E50" stroke-width="1"/>
+      <rect x="-22" y="-12" width="44" height="24" rx="2" fill="#ECF0F1" stroke="#BDC3C7" stroke-width="1"/>
+      <rect x="-18" y="-8" width="15" height="8" rx="1" fill="#3498DB" stroke="#2980B9" stroke-width="0.5"/>
+      <rect x="3" y="-8" width="15" height="8" rx="1" fill="#E74C3C" stroke="#C0392B" stroke-width="0.5"/>
+      <rect x="-18" y="4" width="36" height="8" rx="1" fill="#2ECC71" stroke="#27AE60" stroke-width="0.5"/>
+    </g>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#F5F7FA"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" fill="#34495E" text-anchor="middle" font-weight="bold">Immersive User Experience in Tokenized Virtual Spaces</text>
+  
+  <!-- Main diagram with animation -->
+  <g>
+    <!-- User with VR Equipment -->
+    <g transform="translate(160, 180)">
+      <use xlink:href="#person" transform="scale(2.5)"/>
+      <use xlink:href="#vr-headset" transform="translate(0,-38) scale(2)"/>
+      <use xlink:href="#haptic-gloves" transform="translate(0,30) scale(2)"/>
+      
+      <!-- User Label -->
+      <text x="0" y="80" font-family="Arial" font-size="14" fill="#34495E" text-anchor="middle" font-weight="bold">Physical User</text>
+      
+      <!-- Animated brain waves -->
+      <use xlink:href="#brain-wave" transform="translate(0,-60) scale(0.8)">
+        <animateTransform attributeName="transform" type="translate" values="0,-60; 0,-65; 0,-60" dur="2s" repeatCount="indefinite" additive="sum"/>
+      </use>
+      
+      <!-- Animated heart rate -->
+      <use xlink:href="#heart-rate" transform="translate(0,-50) scale(0.8)">
+        <animateTransform attributeName="transform" type="translate" values="0,-50; 0,-45; 0,-50" dur="3s" repeatCount="indefinite" additive="sum"/>
+      </use>
+      
+      <!-- Biometric Label -->
+      <text x="-50" y="-70" font-family="Arial" font-size="12" fill="#C0392B" text-anchor="end" font-weight="bold">Biometric Data</text>
+    </g>
+    
+    <!-- 6G Network -->
+    <g transform="translate(400, 180)">
+      <use xlink:href="#6g-tower" transform="scale(2)"/>
+      
+      <!-- Signal waves with animation -->
+      <use xlink:href="#signal-waves" transform="translate(-50,0) scale(1.5) rotate(180)">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
+      </use>
+      <use xlink:href="#signal-waves" transform="translate(50,0) scale(1.5)">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
+      </use>
+      
+      <!-- Network Label -->
+      <text x="0" y="80" font-family="Arial" font-size="14" fill="#34495E" text-anchor="middle" font-weight="bold">6G Network</text>
+      <text x="0" y="100" font-family="Arial" font-size="12" fill="#34495E" text-anchor="middle">Ultra-low Latency</text>
+    </g>
+    
+    <!-- Virtual World -->
+    <g transform="translate(640, 180)">
+      <use xlink:href="#virtual-building" transform="scale(1.8)"/>
+      <use xlink:href="#virtual-avatar" transform="translate(-25,20) scale(1.5)"/>
+      <use xlink:href="#virtual-avatar" transform="translate(25,0) scale(1.5)"/>
+      <use xlink:href="#nft-token" transform="translate(0,-50) scale(1.2)">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="10s" repeatCount="indefinite"/>
+      </use>
+      
+      <!-- Virtual World Label -->
+      <text x="0" y="80" font-family="Arial" font-size="14" fill="#34495E" text-anchor="middle" font-weight="bold">Tokenized Virtual Space</text>
+    </g>
+    
+    <!-- Connection lines with animation -->
+    <g stroke="#5D6B89" stroke-width="2" stroke-dasharray="5,3">
+      <line x1="200" y1="180" x2="350" y2="180">
+        <animate attributeName="stroke-dashoffset" values="8;0" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="450" y1="180" x2="580" y2="180">
+        <animate attributeName="stroke-dashoffset" values="8;0" dur="2s" repeatCount="indefinite"/>
+      </line>
+    </g>
+  </g>
+  
+  <!-- Feature boxes -->
+  <g>
+    <!-- Box 1: Haptic Feedback -->
+    <rect x="100" y="350" width="200" height="100" rx="10" ry="10" fill="url(#gradBlue)" filter="url(#shadow)"/>
+    <text x="200" y="375" font-family="Arial" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Real-time Haptic Feedback</text>
+    <text x="200" y="400" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• 40+ tactile actuators</text>
+    <text x="200" y="420" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Response time < 5ms</text>
+    <text x="200" y="440" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Touch, texture, force feedback</text>
+    
+    <!-- Box 2: Multimodal Interface -->
+    <rect x="300" y="350" width="200" height="100" rx="10" ry="10" fill="url(#gradPurple)" filter="url(#shadow)"/>
+    <text x="400" y="375" font-family="Arial" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Multimodal Interface</text>
+    <text x="400" y="400" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Speech/gesture recognition</text>
+    <text x="400" y="420" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• BCI integration</text>
+    <text x="400" y="440" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Emotional response sensing</text>
+    
+    <!-- Box 3: Economic Features -->
+    <rect x="500" y="350" width="200" height="100" rx="10" ry="10" fill="url(#gradGreen)" filter="url(#shadow)"/>
+    <text x="600" y="375" font-family="Arial" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Token-based Economy</text>
+    <text x="600" y="400" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• NFT ownership verification</text>
+    <text x="600" y="420" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Secure transactions</text>
+    <text x="600" y="440" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• AI-based value assessment</text>
+    
+    <!-- Box 4: Performance -->
+    <rect x="100" y="460" width="200" height="100" rx="10" ry="10" fill="url(#gradOrange)" filter="url(#shadow)"/>
+    <text x="200" y="485" font-family="Arial" font-size="16" fill="white" text-anchor="middle" font-weight="bold">High Performance</text>
+    <text x="200" y="510" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• 4K+ resolution per eye</text>
+    <text x="200" y="530" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• 120Hz+ refresh rate</text>
+    <text x="200" y="550" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Edge AI rendering optimization</text>
+    
+    <!-- Box 5: Security -->
+    <rect x="300" y="460" width="200" height="100" rx="10" ry="10" fill="url(#gradPink)" filter="url(#shadow)"/>
+    <text x="400" y="485" font-family="Arial" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Security &amp; Privacy</text>
+    <text x="400" y="510" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Homomorphic encryption</text>
+    <text x="400" y="530" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Biometric authentication</text>
+    <text x="400" y="550" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Hardware security modules</text>
+    
+    <!-- Box 6: Applications -->
+    <rect x="500" y="460" width="200" height="100" rx="10" ry="10" fill="url(#gradBrown)" filter="url(#shadow)"/>
+    <text x="600" y="485" font-family="Arial" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Applications</text>
+    <text x="600" y="510" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Education &amp; training</text>
+    <text x="600" y="530" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Entertainment &amp; social</text>
+    <text x="600" y="550" font-family="Arial" font-size="12" fill="white" text-anchor="middle">• Business &amp; commerce</text>
+  </g>
+</svg>
