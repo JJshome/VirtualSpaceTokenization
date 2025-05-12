@@ -1,6 +1,6 @@
 # AI-based Virtual Space Tokenization and Trading System
 
-![Virtual Space Tokenization](doc/images/tokenization_workflow.svg)
+![Virtual Space Tokenization](https://github.com/JJshome/VirtualSpaceTokenization/raw/main/doc/images/tokenization_workflow.svg)
 
 A next-generation platform for creating, tokenizing, and trading virtual spaces using AI, blockchain, and advanced XR technologies.
 
@@ -42,7 +42,7 @@ The AI-based Virtual Space Tokenization and Trading System revolutionizes the wa
 
 ## System Architecture
 
-![System Architecture](doc/images/system_architecture.svg)
+![System Architecture](https://github.com/JJshome/VirtualSpaceTokenization/raw/main/doc/images/system_architecture.svg)
 
 The system is built on a modular architecture that integrates multiple advanced technologies:
 
@@ -60,7 +60,7 @@ The system is built on a modular architecture that integrates multiple advanced 
 
 ## Technology Stack
 
-![Technology Stack](doc/images/technology_stack.svg)
+![Technology Stack](https://github.com/JJshome/VirtualSpaceTokenization/raw/main/doc/images/technology_stack.svg)
 
 ### Hardware Layer
 - AR/VR headsets with 4K+ per-eye resolution
@@ -97,7 +97,7 @@ The system is built on a modular architecture that integrates multiple advanced 
 
 ## User Experience
 
-![User Experience](doc/images/user_experience.svg)
+![User Experience](https://github.com/JJshome/VirtualSpaceTokenization/raw/main/doc/images/user_experience.svg)
 
 The system provides an end-to-end user experience that encompasses:
 
